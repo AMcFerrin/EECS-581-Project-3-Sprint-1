@@ -66,7 +66,9 @@ func _physics_process(delta):
 
 
 func _changecolor(color):
-	$tankBody/color.color = color
+	modulate = color
+	#$tankBody.modulate = color
+	#$tankGun.modulate = color
 
 func _input(event): #get input event if one happens
 	if event is InputEventMouseMotion: #if it is mouse movement

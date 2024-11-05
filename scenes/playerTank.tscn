@@ -1,20 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj43p1a8ypeu7"]
+[gd_scene load_steps=5 format=3 uid="uid://dj43p1a8ypeu7"]
 
 [ext_resource type="Script" path="res://scripts/player_tank.gd" id="1_5ejvn"]
 [ext_resource type="Texture2D" uid="uid://diw83q4bmsulp" path="res://assets/tankBody.png" id="2_03woj"]
 [ext_resource type="Texture2D" uid="uid://cu6dqvkjbphha" path="res://assets/tankGun.png" id="3_uio1y"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_x7isg"]
-size = Vector2(100, 70)
-
-[sub_resource type="Gradient" id="Gradient_ocltp"]
-colors = PackedColorArray(0.545098, 0, 0.913725, 1, 0.247059, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_u18u8"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_forkn"]
-color_ramp = SubResource("Gradient_ocltp")
-noise = SubResource("FastNoiseLite_u18u8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3dy1"]
 size = Vector2(95, 68)
@@ -28,18 +16,6 @@ script = ExtResource("1_5ejvn")
 [node name="tankBody" type="Sprite2D" parent="."]
 texture = ExtResource("2_03woj")
 
-[node name="temp_detailed" type="MeshInstance2D" parent="tankBody"]
-visible = false
-mesh = SubResource("QuadMesh_x7isg")
-texture = SubResource("NoiseTexture2D_forkn")
-
-[node name="color" type="ColorRect" parent="tankBody"]
-offset_left = -49.0
-offset_top = -35.0
-offset_right = 49.0
-offset_bottom = 34.0
-color = Color(0.168627, 1, 0.223529, 1)
-
 [node name="tankGun" type="Sprite2D" parent="."]
 position = Vector2(-2.38419e-07, 5.72205e-06)
 rotation = -1.5708
@@ -51,5 +27,6 @@ offset = Vector2(0, 16.534)
 position = Vector2(-0.000195479, 54.326)
 
 [node name="tank_body_collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_o3dy1")
